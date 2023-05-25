@@ -64,17 +64,11 @@ module.exports = [
   },
 ];
 
-// TODO:: eslint
 // TODO:: babel?
 // TODO:: storybook
 // TODO:: testing
 // TODO:: husky & lint-staged
 // TODO:: material ui
-
-// for storybook, coz it uses webpack under the hood
-// https://youtu.be/CROGZ0sSt6Y?t=3329
-// "@svgr/webpack": "^6.5.1",
-// "url-loader": "^4.1.1"
 
 // "babel-loader": "^8.3.0",
 // rollup-plugin-babel
