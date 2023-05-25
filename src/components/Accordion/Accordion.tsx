@@ -1,4 +1,5 @@
-import React, { FC, ReactNode, useState } from "react";
+import type { FC, ReactNode } from "react";
+import React, { useState } from "react";
 import styles from "./Accordion.module.scss";
 
 export interface AccordionProps {
@@ -30,7 +31,7 @@ export const Accordion: FC<AccordionProps> = ({
 
   return (
     <div className={styles.container}>
-      <button onClick={onToggle} className={styles.triggerButton}>
+      <button type="button" onClick={onToggle} className={styles.triggerButton}>
         <span className={styles.title}>{title}</span>
         <span className={styles.indicator}>{isOpen ? "-" : "+"}</span>
       </button>

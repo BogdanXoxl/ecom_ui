@@ -1,4 +1,5 @@
-import React, { HTMLProps, FC } from "react";
+import type { HTMLProps, FC } from "react";
+import React from "react";
 
 import { ReactComponent as CheckIconComponent } from "../../core/assets/icons/check.svg";
 import { ReactComponent as QuestionMarkIconComponent } from "../../core/assets/icons/question-mark.svg";

@@ -25,7 +25,6 @@
     "allowSyntheticDefaultImports": true,
     "noEmit": true,
     "jsx": "react",
-    "strictNullChecks": false
   },
   "exclude": [
     "dist",
