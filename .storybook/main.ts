@@ -7,6 +7,12 @@ const config = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/preset-scss",
+    "@storybook/addon-storysource",
+    // coming soon  https://github.com/storybookjs/addon-designs
+    "storybook-addon-designs",
+    "@storybook/addon-viewport",
+    "@storybook/addon-a11y",
+    "storybook-mobile",
   ],
   framework: {
     name: "@storybook/react-webpack5",

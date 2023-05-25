@@ -25,3 +25,11 @@ export const AccordionStoryTemplate: Story<AccordionStoryProps> = ({
 }) => <Accordion {...args} innerControl />;
 
 AccordionStoryTemplate.storyName = "Accordion";
+
+AccordionStoryTemplate.parameters = {
+  // coming soon  https://github.com/storybookjs/addon-designs
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File",
+  },
+};
