@@ -13,6 +13,7 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
+    "plugin:storybook/recommended",
   ],
   parserOptions: {
     parser: "@typescript-eslint/parser",
@@ -22,6 +23,9 @@ module.exports = {
   },
   plugins: ["prettier", "react", "@typescript-eslint", "unused-imports"],
   rules: {
+    "react/no-array-index-key": "off",
+    "react/jsx-no-bind": "off",
+    "react/jsx-uses-react": "off",
     "prettier/prettier": "error",
     "no-console": "warn",
     "no-alert": "error",
