@@ -9,9 +9,10 @@ const config = {
     "@storybook/preset-scss",
     "@storybook/addon-storysource",
     // coming soon  https://github.com/storybookjs/addon-designs
-    "storybook-addon-designs",
+    // "storybook-addon-designs",
     "@storybook/addon-viewport",
     "@storybook/addon-a11y",
+    // throw error till npm i/ci, coz react 18
     "storybook-mobile",
   ],
   framework: {

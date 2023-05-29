@@ -1,3 +1,5 @@
+// https://www.youtube.com/watch?v=CROGZ0sSt6Y&t=713s&ab_channel=MaximFilanovich
+
 const typescript = require("@rollup/plugin-typescript");
 const postcss = require("rollup-plugin-postcss");
 const url = require("@rollup/plugin-url");
@@ -66,9 +68,9 @@ module.exports = [
 
 // TODO:: babel?
 // TODO:: storybook
+// TODO:: material ui
 // TODO:: testing
 // TODO:: husky & lint-staged
-// TODO:: material ui
 
 // "babel-loader": "^8.3.0",
 // rollup-plugin-babel

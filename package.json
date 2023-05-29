@@ -1,7 +1,10 @@
 {
-  "name": "ecom-ui",
+  "name": "@BogdanXoxl/ecom_ui",
   "version": "0.0.1",
   "description": "sovcombank ecom ui library",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/BogdanXoxl"
+  },
   "main": "dist/esm/index.js",
   "module": "dist/cjs/index.js",
   "files": [
