@@ -12,8 +12,8 @@ const config = {
     "@storybook/addon-a11y",
     "storybook-mobile",
     //  storybook 6 (coming soon)
-    // 'storybook-addon-material-ui'
-    // coming soon  https://github.com/storybookjs/addon-designs
+    // "storybook-addon-material-ui"
+    //  coming soon  https://github.com/storybookjs/addon-designs
     // "storybook-addon-designs",
   ],
   framework: {
