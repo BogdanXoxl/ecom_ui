@@ -8,12 +8,13 @@ const config = {
     "@storybook/addon-interactions",
     "@storybook/preset-scss",
     "@storybook/addon-storysource",
-    // coming soon  https://github.com/storybookjs/addon-designs
-    // "storybook-addon-designs",
     "@storybook/addon-viewport",
     "@storybook/addon-a11y",
-    // throw error till npm i/ci, coz react 18
     "storybook-mobile",
+    //  storybook 6 (coming soon)
+    // 'storybook-addon-material-ui'
+    // coming soon  https://github.com/storybookjs/addon-designs
+    // "storybook-addon-designs",
   ],
   framework: {
     name: "@storybook/react-webpack5",

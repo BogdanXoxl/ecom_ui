@@ -6,11 +6,12 @@ const url = require("@rollup/plugin-url");
 const svgr = require("@svgr/rollup");
 const terser = require("@rollup/plugin-terser");
 const dts = require("rollup-plugin-dts");
-const packageJson = require("./package.json");
 const peerDepsExternal = require("rollup-plugin-peer-deps-external");
-
+const autoprefixer = require("autoprefixer");
 const resolve = require("@rollup/plugin-node-resolve");
 const commonjs = require("@rollup/plugin-commonjs");
+
+const packageJson = require("./package.json");
 
 module.exports = [
   {
@@ -42,11 +43,15 @@ module.exports = [
       typescript({
         tsconfig: "./tsconfig.json",
       }),
+      // TODO:: import css inside dist/../index.js
       // scss
       postcss({
-        extract: "index.css",
-        modules: true,
-        use: ["sass"],
+        plugins: [autoprefixer],
+        modules: {
+          scopeBehaviour: "global",
+        },
+        sourceMap: true,
+        extract: true,
         minimize: true,
       }),
       // for icons and svg
@@ -66,8 +71,6 @@ module.exports = [
   },
 ];
 
-// TODO:: babel?
-// TODO:: storybook
 // TODO:: material ui
 // TODO:: testing
 // TODO:: husky & lint-staged
