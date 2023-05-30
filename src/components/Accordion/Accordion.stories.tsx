@@ -1,9 +1,9 @@
 import React from "react";
-import type { Meta, Story } from "@storybook/react";
+import type { Story, Meta } from "@storybook/react";
 import type { AccordionProps } from "./Accordion";
 import { Accordion } from "./Accordion";
 
-export default {
+const meta = {
   title: "components/Accordion",
   component: Accordion,
   args: {
@@ -16,7 +16,9 @@ export default {
       exclude: ["innerControl", "onToggle", "isOpen"],
     },
   },
-} as Meta<AccordionStoryProps>;
+} satisfies Meta<AccordionStoryProps>;
+
+export default meta;
 
 type AccordionStoryProps = Pick<AccordionProps, "title" | "children">;
 
@@ -33,3 +35,6 @@ AccordionStoryTemplate.parameters = {
     url: "https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File",
   },
 };
+
+// ts error
+//

@@ -1,23 +1,17 @@
-import type { FC, HTMLAttributes } from "react";
 import React from "react";
-import styles from "./Button.module.scss";
+import type { ButtonProps as MuiButtonProps } from "@mui/material";
+import { Button as MuiButton } from "@mui/material";
 
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  big?: boolean;
+// Only include variant, size, and color
+type ButtonBaseProps = Pick<MuiButtonProps, "variant" | "size" | "color">;
+
+// Use all except disableRipple
+// type ButtonBaseProps = Omit<MuiButtonProps, "disableRipple">;
+
+export interface ButtonProps extends ButtonBaseProps {
+  label: string;
 }
 
-export const Button: FC<ButtonProps> = ({
-  children,
-  big,
-  className,
-  ...props
-}) => (
-  <button
-    type="button"
-    className={`${styles.button} ${className ?? styles.big} ${big && "big"}`}
-    {...props}
-  >
-    {children}
-  </button>
+export const Button = ({ label, ...rest }: ButtonProps) => (
+  <MuiButton {...rest}>{label}</MuiButton>
 );

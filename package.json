@@ -14,8 +14,10 @@
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint . ",
-    "sb": "storybook dev -p 6006",
-    "build-sb": "storybook build"
+    "start": "storybook dev -p 6006 --no-open",
+    "build-sb": "storybook build",
+    "ts-check": "tsc -p tsconfig.json",
+    "predeploy": "npm version patch"
   },
   "repository": {
     "type": "git",
@@ -37,7 +39,7 @@
     "@storybook/addon-interactions": "^7.0.17",
     "@storybook/addon-links": "^7.0.17",
     "@storybook/addon-storysource": "^7.0.17",
-    "@storybook/addon-viewport": "^7.0.17",
+    "@storybook/addon-styling": "^1.0.8",
     "@storybook/blocks": "^7.0.17",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.0.17",
@@ -86,6 +88,8 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@fontsource/material-icons": "^5.0.1",
+    "@fontsource/roboto": "^5.0.1",
     "@mui/material": "^5.13.3"
   }
 }

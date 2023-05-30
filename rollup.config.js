@@ -41,9 +41,8 @@ module.exports = [
       commonjs(),
       // ts
       typescript({
-        tsconfig: "./tsconfig.json",
+        tsconfig: "./tsconfig.lib.json",
       }),
-      // TODO:: import css inside dist/../index.js
       // scss
       postcss({
         plugins: [autoprefixer],
@@ -71,7 +70,6 @@ module.exports = [
   },
 ];
 
-// TODO:: material ui
 // TODO:: testing
 // TODO:: husky & lint-staged
 
