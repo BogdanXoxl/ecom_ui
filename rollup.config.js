@@ -71,8 +71,8 @@ module.exports = [
 ];
 
 // TODO:: testing
-// TODO:: husky & lint-staged
 
 // "babel-loader": "^8.3.0",
 // rollup-plugin-babel
 // process.env is working?
+// svg with sb?
