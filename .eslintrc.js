@@ -3,14 +3,8 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "airbnb",
-    "airbnb/hooks",
-    "prettier",
-  ],
-  plugins: ["prettier", "react", "unused-imports"],
+  extends: ["eslint:recommended", "plugin:react/recommended", "airbnb", "airbnb/hooks", "prettier"],
+  plugins: ["react", "unused-imports", "prettier"],
   overrides: [
     {
       files: ["**/*.ts", "**/*.tsx"],
@@ -20,6 +14,7 @@ module.exports = {
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "prettier",
+        "plugin:react/jsx-runtime",
       ],
       parserOptions: {
         parser: "@typescript-eslint/parser",
@@ -32,6 +27,7 @@ module.exports = {
         "@typescript-eslint/consistent-type-imports": "error",
         "@typescript-eslint/no-explicit-any": "error",
         "@typescript-eslint/strict-boolean-expressions": "off",
+
         "@typescript-eslint/consistent-type-assertions": [
           "warn",
           {
@@ -87,8 +83,13 @@ module.exports = {
         unnamedComponents: "arrow-function",
       },
     ],
-
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+        semi: true,
+      },
+    ],
     "no-console": "warn",
     "no-alert": "error",
     "arrow-body-style": "off",

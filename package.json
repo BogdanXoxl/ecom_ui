@@ -1,41 +1,47 @@
 {
   "name": "@BogdanXoxl/ecom_ui",
-  "version": "0.0.2",
+  "version": "0.0.0-development",
   "description": "sovcombank ecom ui library",
   "author": "BogXoxl",
   "license": "ISC",
-  "main": "dist/esm/index.js",
-  "module": "dist/cjs/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/**/*"
-  ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/BogdanXoxl"
-  },
+  "types": "index.d.ts",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BogdanXoxl/ecom_ui.git"
+    "url": "https://github.com/BogdanXoxl/ecom_ui.git"
   },
   "scripts": {
+    "start": "concurrently -k -s first -n \"Storybook,Playroom\" -c \"magenta,blue\" \"npm run start-sb\" \"npm run start-pr\"",
+    "prebuild": "rm -rf lib public",
     "build": "rollup -c",
-    "lint": "eslint . ",
-    "start": "storybook dev -p 6006 --no-open",
-    "build-sb": "storybook build",
+    "start-sb": "storybook dev -p 6006 --no-open",
+    "build-sb": "storybook build -o ./public",
+    "start-pr": "playroom start",
+    "build-pr": "playroom build",
+    "": "build-sb then build-pr and after serve",
+    "serve": "node serve.js",
+    "lint": "eslint . --max-warnings 0",
     "ts-check": "tsc --noEmit --pretty",
-    "prepare": "husky install",
-    "test": "jest"
+    "test": "test-storybook",
+    "cz": "cz -a",
+    "semantic-release": "semantic-release",
+    "prepublish-ui": "npm run build && cp package.json lib",
+    "publish-ui": "npm run semantic-release",
+    "clean": "rm -rf lib public",
+    "clean-all": "npm cache clean -f & rm -rf node_modules & npm run clean"
   },
   "peerDependencies": {
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@fontsource/material-icons": "^5.0.1",
-    "@fontsource/roboto": "^5.0.1",
-    "@mui/material": "^5.13.3"
+    "@fontsource/material-icons": "^5.0.3",
+    "@fontsource/roboto": "^5.0.3",
+    "@mui/material": "^5.13.4",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -47,25 +53,31 @@
     "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^11.1.1",
     "@rollup/plugin-url": "^8.0.1",
-    "@storybook/addon-a11y": "^7.0.18",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/gitlab": "^12.0.3",
     "@storybook/addon-actions": "^7.0.18",
     "@storybook/addon-essentials": "^7.0.18",
     "@storybook/addon-interactions": "^7.0.18",
     "@storybook/addon-links": "^7.0.18",
-    "@storybook/addon-mdx-gfm": "^7.0.18",
     "@storybook/addon-storysource": "^7.0.18",
     "@storybook/addon-styling": "^1.0.8",
     "@storybook/blocks": "^7.0.18",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.0.18",
     "@storybook/react-webpack5": "^7.0.18",
-    "@storybook/testing-library": "^0.1.0",
     "@svgr/rollup": "^8.0.1",
     "@svgr/webpack": "^8.0.1",
     "@types/react": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
     "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.3",
+    "commitizen": "^4.2.3",
+    "concurrently": "^8.2.0",
+    "css-loader": "^6.8.1",
+    "cssnano": "^6.0.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.41.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -78,10 +90,16 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-storybook": "^0.6.12",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "husky": "^8.0.0",
+    "file-loader": "^6.2.0",
+    "husky": "^4.3.8",
     "lint-staged": "^13.2.2",
-    "node-sass": "^9.0.0",
+    "loki": "^0.32.0",
+    "playroom": "^0.32.0",
     "postcss": "^8.4.23",
+    "postcss-cssnext": "^3.1.1",
+    "postcss-nested": "^6.0.1",
+    "postcss-preset-env": "^8.5.1",
+    "postcss-simple-vars": "^7.0.1",
     "prettier": "^2.8.8",
     "pretty-quick": "^3.1.3",
     "prop-types": "^15.8.1",
@@ -91,10 +109,42 @@
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.63.3",
+    "sass-loader": "^13.3.2",
+    "semantic-release": "^21.0.7",
     "storybook": "^7.0.18",
     "storybook-addon-designs": "^6.3.1",
-    "storybook-mobile": "^1.0.1",
+    "storybook-addon-playroom": "^4.0.0",
+    "storybook-dark-mode": "^3.0.0",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
     "typescript": "^5.0.4",
+    "unimported": "^1.29.2",
     "url-loader": "^4.1.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "last 5 versions",
+      "Firefox ESR",
+      "not dead",
+      "not op_mini all",
+      "not ie 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "overrides": {
+    "loki": {
+      "@storybook/react": "$@storybook/react"
+    }
   }
 }

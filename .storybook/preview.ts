@@ -1,14 +1,55 @@
+import { redTheme, darkTheme, blueTheme } from "../src/core/themes";
 import type { Preview } from "@storybook/react";
 
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline } from "@mui/material";
 import { withThemeFromJSXProvider } from "@storybook/addon-styling";
-import { lightTheme, darkTheme } from "../src/components/themes";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+
+import { ThemeProvider } from "../src/components";
 
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "@fontsource/material-icons";
+
+const customViewports = {
+  small: {
+    name: "320",
+    styles: {
+      width: "320px",
+      height: "700px",
+    },
+  },
+  mobile: {
+    name: "360",
+    styles: {
+      width: "360px",
+      height: "700px",
+    },
+  },
+  tablet: {
+    name: "600",
+    styles: {
+      width: "600px",
+      height: "700px",
+    },
+  },
+  desktop: {
+    name: "960",
+    styles: {
+      width: "960px",
+      height: "700px",
+    },
+  },
+  large_desktop: {
+    name: "1280",
+    styles: {
+      width: "1280px",
+      height: "700px",
+    },
+  },
+};
 
 const preview: Preview = {
   parameters: {
@@ -20,6 +61,39 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    // backgrounds: {
+    //   default: "dark",
+    //   values: [
+    //     {
+    //       name: "dark",
+    //       value: "rgb(17 24 39)",
+    //     },
+    //   ],
+    // },
+    a11y: {
+      manual: false,
+    },
+    darkMode: {
+      current: "darkMode",
+    },
+    // grid: {
+    //   // gridOn: true,
+    //   // columns: 12,
+    //   // gap: '20px',
+    //   // gutter: '50px',
+    //   // maxWidth: '1024px',
+    // },
+    viewport: {
+      viewports: { ...customViewports, ...INITIAL_VIEWPORTS },
+      defaultViewport: "desktop",
+    },
+    playroom: {
+      url:
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:9000"
+          : "/playroom",
+      code: "code here ...",
+    },
   },
 };
 
@@ -30,10 +104,11 @@ export default preview;
 export const decorators = [
   withThemeFromJSXProvider({
     themes: {
-      light: lightTheme,
       dark: darkTheme,
+      red: redTheme,
+      blue: blueTheme,
     },
-    defaultTheme: "light",
+    defaultTheme: "red",
     Provider: ThemeProvider,
     GlobalStyles: CssBaseline,
   }),

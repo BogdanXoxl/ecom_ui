@@ -1,4 +1,5 @@
 // https://www.youtube.com/watch?v=CROGZ0sSt6Y&t=713s&ab_channel=MaximFilanovich
+/* eslint-disable import/no-extraneous-dependencies */
 
 const typescript = require("@rollup/plugin-typescript");
 const postcss = require("rollup-plugin-postcss");
@@ -11,6 +12,11 @@ const autoprefixer = require("autoprefixer");
 const resolve = require("@rollup/plugin-node-resolve");
 const commonjs = require("@rollup/plugin-commonjs");
 
+const simplevars = require("postcss-simple-vars");
+const nested = require("postcss-nested");
+const presetenv = require("postcss-preset-env");
+const cssnano = require("cssnano");
+
 const packageJson = require("./package.json");
 
 module.exports = [
@@ -19,15 +25,13 @@ module.exports = [
     output: [
       // common js
       {
-        file: packageJson.module,
+        file: `lib/${packageJson.main}`,
         format: "cjs",
-        sourcemap: true,
       },
       // es module
       {
-        file: packageJson.main,
+        file: `lib/${packageJson.module}`,
         format: "esm",
-        sourcemap: true,
       },
     ],
     // external deps
@@ -45,12 +49,10 @@ module.exports = [
       }),
       // scss
       postcss({
-        plugins: [autoprefixer],
-        modules: {
-          scopeBehaviour: "global",
-        },
+        plugins: [autoprefixer, simplevars(), nested(), presetenv(), cssnano()],
+        modules: true,
         sourceMap: true,
-        extract: true,
+        extract: false,
         minimize: true,
       }),
       // for icons and svg
@@ -62,8 +64,8 @@ module.exports = [
   },
   // for types
   {
-    input: "dist/esm/types/index.d.ts",
-    output: [{ file: packageJson.types, format: "esm" }],
+    input: "src/index.ts",
+    output: [{ file: `lib/${packageJson.types}`, format: "esm" }],
     // exclude css/scss files from this bundle (this is only for global types)
     external: [/\.(css|scss)$/],
     plugins: [dts.default()],
