@@ -1,4 +1,5 @@
 {
+  "branches": ["main"],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -9,7 +10,6 @@
         "pkgRoot": "lib"
       }
     ],
-    "@semantic-release/github",
     [
       "@semantic-release/git",
       {
@@ -17,6 +17,7 @@
           "CHANGELOG.md"
         ]
       }
-    ]
+    ],
+    "@semantic-release/github"
   ]
 }
