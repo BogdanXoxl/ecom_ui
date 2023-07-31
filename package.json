@@ -29,7 +29,7 @@
     "test": "test-storybook",
     "cz": "cz -a",
     "semantic-release": "semantic-release",
-    "prepublishOnly": "npm run build && cp package.json lib",
+    "prepublish-ui": "npm run build && cp package.json lib",
     "publish-ui": "npm run semantic-release",
     "clean": "rm -rf lib public",
     "clean-all": "npm cache clean -f & rm -rf node_modules & npm run clean"
