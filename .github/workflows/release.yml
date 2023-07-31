@@ -1,7 +1,8 @@
 name: Release
 on:
-  repository_dispatch:
-    types: [semantic-release]
+  push:
+    branches:
+      - master
 
 permissions:
     contents: read # for checkout
