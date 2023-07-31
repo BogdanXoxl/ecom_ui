@@ -10,9 +10,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "lib/*"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/BogdanXoxl/ecom_ui.git"
@@ -32,7 +29,7 @@
     "test": "test-storybook",
     "cz": "cz -a",
     "semantic-release": "semantic-release",
-    "prepublish-ui": "npm run build && cp package.json lib",
+    "prepack": "npm run build && cp package.json lib",
     "publish-ui": "npm run semantic-release",
     "clean": "rm -rf lib public",
     "clean-all": "npm cache clean -f & rm -rf node_modules & npm run clean"
