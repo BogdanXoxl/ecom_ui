@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/BogdanXoxl/ecom_ui/compare/v1.0.6...v1.1.0) (2023-08-07)
+
+
+### Features
+
+* **loki:** add loki ci/cd script ([131c49d](https://github.com/BogdanXoxl/ecom_ui/commit/131c49d9b431c797bc9300aa21970c59365aad4b))
+
 ## [1.0.6](https://github.com/BogdanXoxl/ecom_ui/compare/v1.0.5...v1.0.6) (2023-07-31)
 
 
