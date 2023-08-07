@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/BogdanXoxl/ecom_ui/compare/v1.1.0...v1.2.0) (2023-08-07)
+
+
+### Features
+
+* **pkg:** add styled-components ([3f46e78](https://github.com/BogdanXoxl/ecom_ui/commit/3f46e78624ee3b78c736dbf58f72c16c0b5e7bcd))
+
 # [1.1.0](https://github.com/BogdanXoxl/ecom_ui/compare/v1.0.6...v1.1.0) (2023-08-07)
 
 
