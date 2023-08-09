@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/BogdanXoxl/ecom_ui/compare/v1.4.0...v1.5.0) (2023-08-09)
+
+
+### Features
+
+* **pkg-lock:** update package-lock.json ([2980408](https://github.com/BogdanXoxl/ecom_ui/commit/29804085f242421fdd87b9a3b65c7a9aa42d8d5a))
+
 # [1.4.0](https://github.com/BogdanXoxl/ecom_ui/compare/v1.3.0...v1.4.0) (2023-08-09)
 
 
