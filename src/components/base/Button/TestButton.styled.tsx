@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { classNames } from "@src/utils/classNames";
 
 export const TestButton = styled.button<{ $primary?: boolean }>`
   /* Adapt the colors based on primary prop */
@@ -11,3 +12,9 @@ export const TestButton = styled.button<{ $primary?: boolean }>`
   border: 2px solid #bf4f74;
   border-radius: 3px;
 `;
+
+export const TestButton2 = () => (
+  <TestButton $primary onClick={() => console.log(classNames)}>
+    Button
+  </TestButton>
+);

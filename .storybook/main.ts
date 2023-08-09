@@ -1,3 +1,5 @@
+import path from "path";
+
 const config = {
   stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -43,8 +45,12 @@ const config = {
         prop.parent ? !/node_modules\/(?!@mui)/.test(prop.parent.fileName) : true,
     },
   },
-  webpackFinal: (config) => {
+  webpackFinal: async (config) => {
     config.resolve.modules = [...(config.resolve.modules || []), "./src"];
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@src": path.resolve(__dirname, "../src"),
+    };
     config.module.rules = [
       ...(config.module.rules || []),
       {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TestButton } from "./TestButton.styled";
+import { TestButton, TestButton2 } from "./TestButton.styled";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof TestButton> = {
@@ -24,4 +24,8 @@ export const Secondary: Story = {
     children: "Button",
     $primary: false,
   },
+};
+
+export const Alias: Story = {
+  render: () => <TestButton2 />,
 };

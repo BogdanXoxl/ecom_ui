@@ -1,6 +1,7 @@
 // https://www.youtube.com/watch?v=CROGZ0sSt6Y&t=713s&ab_channel=MaximFilanovich
 /* eslint-disable import/no-extraneous-dependencies */
 
+const alias = require("@rollup/plugin-alias");
 const typescript = require("@rollup/plugin-typescript");
 const postcss = require("rollup-plugin-postcss");
 const url = require("@rollup/plugin-url");
@@ -39,6 +40,12 @@ module.exports = [
     plugins: [
       // for peerDeps
       peerDepsExternal(),
+      // for aliases
+      alias({
+        entries: {
+          "@src/": "src/",
+        },
+      }),
       // Resolving third-party dependencies in node_modules
       resolve(),
       // Bundling to CommonJS format (module.exports/require())
