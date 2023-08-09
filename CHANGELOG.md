@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/BogdanXoxl/ecom_ui/compare/v1.2.0...v1.3.0) (2023-08-09)
+
+
+### Features
+
+* **config:** add alias ([3e4e97c](https://github.com/BogdanXoxl/ecom_ui/commit/3e4e97cb606e4044c2a780f8875182fbcda1b4c3))
+
 # [1.2.0](https://github.com/BogdanXoxl/ecom_ui/compare/v1.1.0...v1.2.0) (2023-08-07)
 
 
