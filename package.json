@@ -17,7 +17,7 @@
   "scripts": {
     "start": "concurrently -k -s first -n \"Storybook,Playroom\" -c \"magenta,blue\" \"npm run start-sb\" \"npm run start-pr\"",
     "prebuild": "rm -rf lib public",
-    "build": "rollup -c && rsync -a src/components/* lib/src/",
+    "build": "rollup -c",
     "start-sb": "storybook dev -p 6006 --no-open",
     "build-sb": "storybook build -o ./public",
     "start-pr": "playroom start",
