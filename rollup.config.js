@@ -36,7 +36,7 @@ module.exports = [
       },
     ],
     // external deps
-    external: ["react", "react-dom", "styled-components"],
+    external: ["react", "react-dom"],
     plugins: [
       // for peerDeps
       peerDepsExternal(),
